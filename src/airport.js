@@ -3,8 +3,8 @@ function Airport() {
    this.capacity = 10;
 }
 
-Airport.prototype.land = function(plane, weather) {
-  if (weather === "stormy") {
+Airport.prototype.land = function(plane, stormy) {
+  if (stormy === true) {
     return "It's too stormy to land!";
   } else if (this.hangar.length === this.capacity) {
     return "Airport is full";
@@ -14,10 +14,14 @@ Airport.prototype.land = function(plane, weather) {
   }
 };
 
-Airport.prototype.takeOff = function(plane, weather) {
-  if (weather === "stormy") {
+Airport.prototype.takeOff = function(plane, stormy) {
+  if (stormy === true) {
     return "It's too stormy to take off!";
   } else {
     return plane + " taken off";
   }
+};
+
+Airport.prototype.isStormy = function() {
+  return Math.floor(Math.random() * 11) > 8;
 };

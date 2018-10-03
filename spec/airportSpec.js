@@ -10,7 +10,8 @@
        expect(airport.land('plane')).toEqual("plane landed");
      });
      it("Should not allow a plane land when the weather is stormy", function() {
-       expect(airport.land('plane', 'stormy')).toEqual("It's too stormy to land!");
+       spyOn(Math, "random").and.returnValue(9);
+       expect(airport.land('plane', airport.isStormy())).toEqual("It's too stormy to land!");
      });
      it("Should not allow a plane to land when the airport is full", function() {
        var i;
@@ -26,7 +27,15 @@
        expect(airport.takeOff('plane')).toEqual("plane taken off");
      });
      it("Should not allow a plane to take off when the weather is stormy", function() {
-       expect(airport.takeOff('plane', 'stormy')).toEqual("It's too stormy to take off!");
+       spyOn(Math, "random").and.returnValue(9);
+       expect(airport.takeOff('plane', airport.isStormy())).toEqual("It's too stormy to take off!");
+     });
+   });
+
+   describe("#isStormy", function() {
+     it("Should return Stormy", function () {
+       spyOn(Math, "random").and.returnValue(9);
+       expect(airport.isStormy()).toEqual(true);
      });
    });
  });
