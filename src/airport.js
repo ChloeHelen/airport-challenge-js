@@ -1,5 +1,5 @@
 function Airport() {}
 
-Airport.prototype.land = function() {
-  return "Landed";
+Airport.prototype.land = function(plane) {
+  return plane + " landed";
 };
