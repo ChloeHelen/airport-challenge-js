@@ -1,11 +1,12 @@
 function Airport() {
    this.hangar = [];
+   this.capacity = 1;
 }
 
 Airport.prototype.land = function(plane, weather) {
   if (weather === "stormy") {
     return "It's too stormy to land!";
-  } else if (this.hangar.length === 1) {
+  } else if (this.hangar.length === this.capacity) {
     return "Airport is full";
   } else {
     this.hangar.push(plane);
