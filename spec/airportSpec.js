@@ -12,6 +12,10 @@
      it("Should not allow a plane land when the weather is stormy", function() {
        expect(airport.land('plane', 'stormy')).toEqual("It's too stormy to land!");
      });
+     it("Should not allow a plane to land when the airport is full", function() {
+       airport.land('plane');
+       expect(airport.land('plane')).toEqual("Airport is full");
+     });
    });
 
    describe("#takeOff", function() {
