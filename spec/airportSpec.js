@@ -13,7 +13,10 @@
        expect(airport.land('plane', 'stormy')).toEqual("It's too stormy to land!");
      });
      it("Should not allow a plane to land when the airport is full", function() {
-       airport.land('plane');
+       var i;
+       for(i = 0; i < airport.capacity; i++) {
+         airport.land('plane');
+       }
        expect(airport.land('plane')).toEqual("Airport is full");
      });
    });
